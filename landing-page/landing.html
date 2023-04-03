@@ -1,121 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<meta content="IE=edge" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	
+  <!-- Montserratt google link -->
+	<link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
+  <!-- Flaticon icon link -->
+	<link href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css' rel='stylesheet'>
+  <!-- Background style -->
+	<link href="/universal/star-background/star.css" rel="stylesheet">
+  <!-- Logo style -->
+	<link href="/universal/logo/logo.css" rel="stylesheet">
+  <!-- Button style -->
+	<link href="/universal/buttons/buttons.css" rel="stylesheet">
+  <!-- Cards style -->
+	<link href="/universal/cards/cards.css" rel="stylesheet"><
+    !-- Sign-up form style -->
+	<link href="/universal/forms/signup-form.css" rel="stylesheet">
 
-    <!-- Montserratt google link -->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300" rel="stylesheet">
-    <!-- Flaticon icon link -->
-    <link href='https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css' rel='stylesheet' >
-    <!-- Background style -->
-    <link rel="stylesheet" href="/universal/star-background/star.css">
-    <!-- Logo style -->
-    <link rel="stylesheet" href="/universal/logo/logo.css">
-    <!-- Button style -->
-    <link rel="stylesheet" href="/universal/buttons/buttons.css">
-    <!-- Cards style -->
-    <link rel="stylesheet" href="/universal/cards/cards.css">
-    <!-- Sign-up form style -->
-    <link rel="stylesheet" href="/universal/forms/signup-form.css">
-
-    <title>LedgerLink</title>
-
+	<title>LedgerLink</title>
 </head>
+
 <body>
-    <canvas id="canvas"></canvas>
-    
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <div class="logo-image"></div>
-                <p class="logo-text">LedgerLink</p>
-            </div>
-            <button class="login-button">Login/Sign-Up</button>
-        </div>
-    </header>
 
-    <main>
-        <div class="spinning-cube-animation">
-            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_oUYCEY6cfy.json" background="transparent" speed=".5" loop autoplay></lottie-player>
-        </div>
+	<canvas id="canvas"></canvas>
 
-        <div class="landing-page-text">
-            <h1 class="landing-h1">Your Money Matters</h1>
-            <h2 class="landing-h2">Smart personal finance management</h2>
-        </div>
+	<header>
+		<div class="header-container">
+			<div class="logo">
+				<div class="logo-image"></div>
+				<p class="logo-text">LedgerLink</p>
+			</div><button class="login-button">Login/Sign-Up</button>
+		</div>
+	</header>
 
-        <div class="content">
-            <div class="card">
-                <p class="card-title">Expenses</p>
-                <p class="card-text">Keep track of all your expenses.</p>
-            </div>
-            <div class="card">
-                <p class="card-title">Dashboard</p>
-                <p class="card-text">Visual representation of where your money is going.</p>
-            </div>
-            <div class="card">
-                <p class="card-title">Income</p>
-                <p class="card-text">Allocate where your income goes.</p>
-            </div>
-            <div class="card">
-                <p class="card-title">Alerts</p>
-                <p class="card-text">get alerted when spending is too high.</p>
-            </div>
-        </div>
-        
-        <div class="hidden">
-            <div class="signup-form">
-                <div class="container">
-                  <div class="signup-header">
-                    <h1>Create an Account</h1>
-                  </div>
-                  <form class="form-signup">
-                    <div class="input">
-                      <i class="fi fi-rs-user"></i>
-                      <input class="input-field" type="text" placeholder="Username" required/>
-                    </div>
-                    <div class="input">
-                      <i class="fi fi-tr-envelopes"></i>
-                      <input class="input-field" type="email" placeholder="Email" required/>
-                    </div>
-                    <div class="input">
-                      <i class="fi fi-rs-lock" id="password-toggle"></i>
-                      <input id="password-input" type="password" placeholder="Password" required/>
-                    </div>
-                    <button class="signup-button" type="submit" value="SIGN UP">Sign Up</button>
-                  </form>
-                  <p>Already have an account? <a href="#" class="switch-to-login">Log in</a></p>
-                </div>
-            </div>
+	<main>
 
-            <div class="login-form" style="display: none;">
-                <div class="container">
-                  <div class="login-header">
-                    <h1>Log In</h1>
-                  </div>
-                  <form class="form-login">
-                    <div class="input">
-                      <i class="fi fi-rs-user"></i>
-                      <input class="input-field" type="text" placeholder="Username" required/>
-                    </div>
-                    <div class="input">
-                      <i class="fi fi-rs-lock" id="password-toggle-login"></i>
-                      <input id="password-input-login" type="password" placeholder="Password" required/>
-                    </div>
-                    <button class="login-button" type="submit" value="LOG IN">Log In</button>
-                  </form>
-                  <p>Don't have an account? <a href="#" class="switch-to-signup">Sign up</a></p>
-                </div>
-            </div>
-        </div>
-    </main>
+		<div class="spinning-cube-animation">
+			<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_oUYCEY6cfy.json" background="transparent" speed=".5" loop autoplay></lottie-player>
+		</div>
 
-    <script src="/universal/star-background/star.js"></script>
-    <script src="/universal/buttons/buttons.js"></script>
-    <script src="/universal/forms/signup-form.js"></script>
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+		<div class="landing-page-text">
+			<h1 class="landing-h1">Your Money Matters</h1>
+			<h2 class="landing-h2">Smart personal finance management</h2>
+		</div>
 
+		<div class="content">
+			<div class="card">
+				<p class="card-title">Expenses</p>
+				<p class="card-text">Keep track of all your expenses.</p>
+			</div>
+			<div class="card">
+				<p class="card-title">Dashboard</p>
+				<p class="card-text">Visual representation of where your money is going.</p>
+			</div>
+			<div class="card">
+				<p class="card-title">Income</p>
+				<p class="card-text">Allocate where your income goes.</p>
+			</div>
+			<div class="card">
+				<p class="card-title">Alerts</p>
+				<p class="card-text">get alerted when spending is too high.</p>
+			</div>
+		</div>
+
+		<div class="hidden">
+
+			<div class="signup-form">
+				<div class="container">
+					<div class="signup-header">
+						<h1>Create an Account</h1>
+					</div>
+					<form class="form-signup">
+						<div class="input">
+							<i class="fi fi-rs-user"></i> <input class="input-field" placeholder="Username" type="text">
+						</div>
+						<div class="input">
+							<i class="fi fi-tr-envelopes"></i> <input class="input-field" placeholder="Email" type="email">
+						</div>
+						<div class="input">
+							<i class="fi fi-rs-lock" id="password-toggle"></i> <input id="password-input" placeholder="Password" type="password">
+						</div><button class="signup-button" type="submit" value="SIGN UP">Sign Up</button>
+					</form>
+					<p>Already have an account? <a class="switch-to-login" href="#">Log in</a></p>
+				</div>
+			</div>
+
+			<div class="login-form" style="display: none;">
+				<div class="container">
+					<div class="login-header">
+						<h1>Log In</h1>
+					</div>
+					<form class="form-login">
+						<div class="input">
+							<i class="fi fi-rs-user"></i> <input class="input-field" placeholder="Username" type="text">
+						</div>
+						<div class="input">
+							<i class="fi fi-rs-lock" id="password-toggle-login"></i> <input id="password-input-login" placeholder="Password" type="password">
+						</div><button class="login-button" type="submit" value="LOG IN">Log In</button>
+					</form>
+					<p>Don't have an account? <a class="switch-to-signup" href="#">Sign up</a></p>
+				</div>
+			</div>
+
+		</div>
+
+	</main>
+  
+	<script src="/universal/star-background/star.js"></script> 
+	<script src="/universal/buttons/buttons.js"></script> 
+	<script src="/universal/forms/signup-form.js"></script> 
+	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
 </html>
