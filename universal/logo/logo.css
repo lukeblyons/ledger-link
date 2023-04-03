@@ -1,0 +1,21 @@
+.logo {
+    display: flex;
+    align-items: center;
+    z-index: 5;
+}
+
+.logo-image {
+    width: 5vmin;
+    height: 5vmin;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/1432/1432359.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.logo .logo-text {
+    margin: 0;
+    font-size: 4vmin;
+    font-weight: bold;
+    letter-spacing: 0.5vmin;
+}

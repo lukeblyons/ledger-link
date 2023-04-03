@@ -1,0 +1,26 @@
+button{
+  padding: 1vmin 2vmin;
+  background-color: transparent;
+  font-weight: bold;
+  border: 1px solid;
+  border-radius: 5px;
+  letter-spacing: 0.5vmin;
+  overflow: hidden;
+  transition: .3s;
+  cursor: pointer;
+}
+
+button:hover{
+    box-shadow: 0 0 5px #25D9F8,
+                0 0 10px #25D9F8,
+                0 0 15px #25D9F8,
+                0 0 20px #25D9F8;
+      -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
+/* Login Button Styling */
+.login-button {
+  font-size: 1.5vmin;
+  z-index: 5;
+}
+

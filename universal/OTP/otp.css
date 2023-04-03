@@ -1,0 +1,60 @@
+* {
+  font-family: 'Montserrat', serif;
+  text-transform: uppercase;
+  color: #25D9F8;
+}
+
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: black;
+  height: 80vmin;
+}
+
+p {
+  font-size: 2vmin;
+}
+
+h1 {
+  font-size: 4vmin;
+  padding-bottom: 3vmin;
+}
+
+.otp-field {
+  display: flex;
+  z-index: 1;
+}
+
+.otp-field input {
+  width: 2.5vmin;
+  font-size: 4vmin;
+  padding: 1vmin;
+  text-align: center;
+  border-radius: 5px;
+  margin: .5vmin;
+  border: 1px solid;
+  background: transparent;
+  /* color: #25D9F8; */
+  outline: none;
+  transition: all 0.1s;
+}
+
+.otp-field input:focus {
+  box-shadow: 0 0 5px #25D9F8,
+              0 0 10px #25D9F8,
+              0 0 15px #25D9F8,
+              0 0 20px #25D9F8;
+    -webkit-box-reflect:below .2px linear-gradient(transparent, #0005);
+}
+
+.disabled {
+  opacity: 0.5;
+}
+
+.space {
+  margin-right: 1rem !important;
+}

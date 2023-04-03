@@ -1,0 +1,80 @@
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+
+/* Universal text styling */
+* {
+  font-family: 'Montserrat', serif;
+  text-transform: uppercase;
+  color: #25D9F8;
+}
+
+.blur {
+  /* filter: blur(20px) */
+  opacity: 0;
+}
+
+/* Universal background */
+/* to add a background color, give canvas an id */
+canvas {
+  display: flex;
+  position: fixed;
+  /* z-index: -9; */
+  top: 0;
+  left: 0;
+  /* background-color: black; */
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 3vmin;
+  margin-left: 2vmin;
+  margin-right: 2vmin;
+  z-index: 5;
+}
+
+/* Lottie spinning cube animation */
+.spinning-cube-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  opacity: 1;
+  background-color: rgba(0,0,0,1);
+}
+
+.spinning-cube-animation lottie-player {
+  opacity: 0.3; 
+}
+
+/* Text in the middle of the landing page */
+.landing-page-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 60vmin;
+  z-index: -1;
+}
+
+.landing-page-text .landing-h1 {
+  font-size: 8vmin;
+  z-index: -1;
+}
+
+.landing-page-text .landing-h2 {
+  font-size: 3vmin;
+  z-index: -1;
+}

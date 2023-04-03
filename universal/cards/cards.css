@@ -1,0 +1,64 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  margin: 0% 2% 2% 2%;
+  z-index: 1;
+}
+
+.card {
+  width: 25%;
+  height: 25vh;
+  margin: 2rem;
+  border-radius: 30px;
+  border: 2px solid #25D9F8;
+  font-size: 16px;
+  position: relative;
+  cursor: pointer;
+  transition: all 1.0s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: -1;
+}
+
+
+/* Card hover effects */
+.card:hover {
+  box-shadow: 0 0 5px #25D9F8,
+              0 0 15px #25D9F8,
+              0 0 30px #25D9F8,
+              0 0 50px #25D9F8;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+.card .card-title {
+  margin: 0;
+  text-align: center;
+  margin-top: 30px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  transition: all 1.0s ease;
+  font-size: 1.25vw;
+}
+
+.card .card-text {
+  width: 80%;
+  margin: 0 auto;
+  font-size: .85vw;
+  text-align: center;
+  margin-top: 3%;
+  font-weight: 200;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  max-height: 0;
+  transition: all 1.0s ease;
+}
+
+.card:hover .card-text {
+  opacity: 1;
+  max-height: 30%;
+}

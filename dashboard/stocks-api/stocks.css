@@ -1,0 +1,93 @@
+@import url('https://cdn-uicons.flaticon.com/uicons-thin-straight/css/uicons-thin-straight.css');
+
+.blur {
+  opacity: 0;
+}
+/* .stock-search-container {
+  padding-bottom: 10vmin;
+  border: 2px solid;
+  display: inline-block;
+} */
+
+#search-form {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 3vmin;
+}
+
+label {
+  font-size: 2vmin;
+}
+
+#stock-ticker {
+  background-color: transparent;
+  border: 1px solid;
+  width: 20vmin;
+  height: 3vmin;
+
+}
+
+
+#favorites-list {
+  flex: 1;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#favorites-list thead th {
+  border-bottom: 1px solid;
+  text-align: left;
+  padding: 8px;
+  font-size: 2vmin;
+
+}
+
+#favorites-list tbody tr:nth-child(even) {
+  background-color: rgba(128, 128, 128, 0.2);
+}
+
+#favorites-list tbody td {
+  padding: 8px;
+}
+
+.delete-button {
+  background-color: #FF0059;
+  color: black;
+  border: none;
+  cursor: pointer;
+  padding: 6px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+/* .delete-button:hover {
+  background-color: #da190b;
+} */
+
+.delete-button:hover{
+  box-shadow: 0 0 5px #FF0059,
+              0 0 10px #FF0059,
+              0 0 15px #FF0059,
+              0 0 20px #FF0059;
+    -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+}
+
+.stock-favorites {
+  margin-top: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.up-arrow-icon {
+  color: green;
+}
+
+.down-arrow-icon {
+  color: red;
+}
+

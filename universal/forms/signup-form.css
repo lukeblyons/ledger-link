@@ -1,0 +1,79 @@
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-straight/css/uicons-regular-straight.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-thin-rounded/css/uicons-thin-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+
+
+/* Hides sign-up form */
+.hidden {
+  display: none;
+}
+
+ /* Sign-up and Login forms */
+.signup-form,
+.login-form {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: transparent;
+  padding: 2vmin;
+  border: 2px solid #25D9F8;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.signup-header,
+.login-header {
+  text-align: center;
+  margin-bottom: 1vmin;
+  padding-bottom: 1vmin;
+  font-size: 2vmin;
+}
+
+.form-signup,
+.form-login {
+  width: 100%;
+  height: 100%;
+}
+
+.signup-form .input,
+.login-form .input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2vmin;
+  background-color: transparent;
+}
+
+.signup-form .input-field,
+.signup-form #password-input,
+.login-form .input-field,
+.login-form #password-input-login {
+  margin-right: 2vmin;
+  border: none;
+  border-bottom: 1px solid;
+  padding: 1vmin;
+  width: 100%;
+  font-size: 2vmin;
+  outline: none;
+  background-color: transparent;
+}
+
+.signup-form input::placeholder,
+.login-form input::placeholder {
+  color: #25D9F8;
+  font-weight: bold;
+  width: 100%;
+}
+
+.signup-button,
+.login-button {
+  /* margin-top: 4vmin; */
+  margin-bottom: 2vmin;
+  align-self: center;
+}
