@@ -20,7 +20,7 @@
 	<!-- Sign-up form style -->
 	<link href="/client/css/signup-form.css" rel="stylesheet">
 
-	<title>LedgerLink</title>
+	<title>landing</title>
 </head>
 
 <body>
@@ -73,7 +73,7 @@
 					<div class="signup-header">
 						<h1>Create an Account</h1>
 					</div>
-					<form class="form-signup" id="signup-form">
+					<form class="form-signup" id="signup-form" action="/signup" method="POST">
 						<div class="input">
 							<i class="fi fi-rs-user"></i> <input class="input-field" placeholder="Username" type="text">
 						</div>
@@ -93,7 +93,7 @@
 					<div class="login-header">
 						<h1>Log In</h1>
 					</div>
-					<form class="form-login">
+					<form class="form-login" action="/login" method="POST">
 						<div class="input">
 							<i class="fi fi-rs-user"></i> <input class="input-field" placeholder="Username" type="text">
 						</div>
@@ -109,9 +109,9 @@
 
 	</main>
   
-	<script src="/server/star.js"></script> 
-	<script src="/server/buttons.js"></script> 
-	<script src="/server/signup-form.js"></script> 
+	<script src="/client/frontend-js/star.js"></script> 
+	<script src="/client/frontend-js/buttons.js"></script> 
+	<script src="/client/frontend-js/signup-form.js"></script> 
 	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </body>
 </html>
