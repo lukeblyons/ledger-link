@@ -1,88 +1,110 @@
-const searchForm = document.getElementById('search-form');
-const stockTickerInput = document.getElementById('stock-ticker');
-const favoritesList = document.getElementById('favorites-list').querySelector('tbody');
+const API_KEY = '6OQU5XY1RI3KONVS';
+const API_BASE_URL = 'https://www.alphavantage.co/query?';
 
-const ALPHA_VANTAGE_API_KEY = '6OQU5XY1RI3KONVS';
+document.getElementById('search-form').addEventListener('submit', (e) => {
+  e.preventDefault();
+  const stockTicker = document.getElementById('stock-ticker').value.toUpperCase();
+  addStockToFavoriteList(stockTicker);
+});
 
-// Function to fetch stock data using Alpha Vantage API
-async function fetchStockData(stockTicker) {
-  const apiUrl = `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${stockTicker}&apikey=${ALPHA_VANTAGE_API_KEY}`;
+async function addStockToFavoriteList(stockTicker) {
+  // Set default tickers
+  const defaultTickers = ['AAPL', 'META', 'TSLA'];
+  
+  // If the stock ticker is not provided, use default tickers
+  if (!stockTicker) {
+    for (const ticker of defaultTickers) {
+      await addStockToFavoriteList(ticker);
+    }
+    return;
+  }
+  
+  const stockInfo = await getStockInfo(stockTicker);
+  if (!stockInfo) return;
+  const favoritesList = document.getElementById('favorites-list').getElementsByTagName('tbody')[0];
 
-  const response = await fetch(apiUrl);
-  const data = await response.json();
-  return data['Global Quote'];
+  const newRow = favoritesList.insertRow();
+  newRow.innerHTML = `
+    <td>${stockInfo.ticker}</td>
+    <td>${stockInfo.name}</td>
+    <td>${stockInfo.price}</td>
+    <td style="color: ${stockInfo.dailyChange >= 0 ? 'green' : 'red'}">${stockInfo.dailyChange} ${stockInfo.dailyChange >= 0 ? '<i class="fi fi-rr-angle-small-up"></i>' : '<i class="fi fi-rr-angle-small-down"></i>'}</td>
+    <td>${stockInfo.marketCap}</td>
+    <td>${stockInfo.dividendYield}</td>
+    <td><button onclick="deleteRow(this)">Delete</button></td>
+  `;
+
+  sortTable(favoritesList);
 }
 
-// Add numberWithCommas and formatMarketCap functions
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+async function getStockInfo(stockTicker) {
+  try {
+    const overviewUrl = `${API_BASE_URL}function=OVERVIEW&symbol=${stockTicker}&apikey=${API_KEY}`;
+    const dailyUrl = `${API_BASE_URL}function=TIME_SERIES_DAILY_ADJUSTED&symbol=${stockTicker}&apikey=${API_KEY}`;
+
+    const [overviewResponse, dailyResponse] = await Promise.all([
+      fetch(overviewUrl),
+      fetch(dailyUrl),
+    ]);
+
+    const [overviewData, dailyData] = await Promise.all([
+      overviewResponse.json(),
+      dailyResponse.json(),
+    ]);
+
+    if (!overviewData.Name || !dailyData['Time Series (Daily)']) {
+      alert('Invalid stock ticker or error fetching data. Please try again.');
+      return null;
+    }
+
+    const dailyTimeSeries = dailyData['Time Series (Daily)'];
+    const latestDate = Object.keys(dailyTimeSeries)[0];
+    const latestData = dailyTimeSeries[latestDate];
+
+    const stockInfo = {
+      ticker: stockTicker,
+      name: overviewData.Name,
+      price: `$${parseFloat(latestData['4. close']).toFixed(2)}`,
+      dailyChange: `${(((parseFloat(latestData['4. close']) - parseFloat(latestData['1. open'])) / parseFloat(latestData['1. open'])) * 100).toFixed(2)}%`,
+      marketCap: formatMarketCap(parseInt(overviewData.MarketCapitalization)),
+      dividendYield: `${(parseFloat(overviewData.DividendYield) * 100).toFixed(2)}%`,
+    };
+
+    return stockInfo;
+  } catch (error) {
+    console.error('Error fetching stock info:', error);
+    return null;
+  }
+}
+
+
+
+function deleteRow(btn) {
+  const row = btn.parentNode.parentNode;
+  row.parentNode.removeChild(row);
+}
+
+function sortTable(tbody) {
+  const rows = Array.from(tbody.rows);
+  rows.sort((a, b) => a.cells[0].innerText.localeCompare(b.cells[0].innerText));
+  rows.forEach(row => tbody.appendChild(row));
 }
 
 function formatMarketCap(marketCap) {
-  const value = parseFloat(marketCap);
+  const trillion = 1000000000000;
+  const billion = 1000000000;
+  const million = 1000000;
 
-  if (value >= 1e12) {
-    return (value / 1e12).toFixed(2) + 'T';
-  } else if (value >= 1e9) {
-    return (value / 1e9).toFixed(2) + 'B';
-  } else if (value >= 1e6) {
-    return (value / 1e6).toFixed(2) + 'M';
+  if (marketCap >= trillion) {
+    return `$${(marketCap / trillion).toFixed(2)}T`;
+  } else if (marketCap >= billion) {
+    return `$${(marketCap / billion).toFixed(2)}B`;
+  } else if (marketCap >= million) {
+    return `$${(marketCap / million).toFixed(2)}M`;
   } else {
-    return numberWithCommas(value.toFixed(2));
+    return `$${marketCap}`;
   }
 }
 
-// Calculate daily change
-function calculateDailyChange(dailyData) {
-  const currentDayClose = parseFloat(dailyData[0].close);
-  const previousDayClose = parseFloat(dailyData[1].close);
-  const percentageChange = ((currentDayClose - previousDayClose) / previousDayClose) * 100;
-
-  return {
-    percentageChange: percentageChange,
-    arrowIcon: percentageChange >= 0 ? '<i class="fi fi-ts-angle-double-small-up"></i>' : '<i class="fi fi-ts-angle-double-small-down"></i>',
-    textColor: percentageChange >= 0 ? 'green' : 'red'
-  };
-}
-
-// Function to add stock to favorites list
-function addStockToFavorites(stockData) {
-  const newRow = favoritesList.insertRow();
-  newRow.insertCell().innerText = stockData['01. symbol'];
-  newRow.insertCell().innerText = 'N/A'; // Replace with stock name if available
-  newRow.insertCell().innerText = stockData['05. price'];
-  newRow.insertCell().innerText = stockData['09. change'];
-  newRow.insertCell().innerText = formatMarketCap('N/A'); // Replace with market cap if available
-  newRow.insertCell().innerText = 'N/A'; // Replace with dividend yield if available
-  newRow.insertCell().innerHTML = '<button class="remove-stock">Remove</button>';
-
-  // Add event listener to the remove button
-  newRow.querySelector('.remove-stock').addEventListener('click', () => {
-    newRow.remove();
-    // Add logic to remove stock from the user's favorites list in the database
-  });
-}
-
-// Event listener for the search form
-searchForm.addEventListener('submit', async (event) => {
-  event.preventDefault();
-
-  const stockTicker = stockTickerInput.value.toUpperCase();
-  const stockData = await fetchStockData(stockTicker);
-
-  if (stockData) {
-    addStockToFavorites(stockData);
-    // Add logic to save stock to the user's favorites list in the database
-  } else {
-    alert('Stock not found');
-  }
-});
-
-// Event listener for removing stocks from the favorites list
-favoritesList.addEventListener('click', (event) => {
-  if (event.target.classList.contains('remove-stock')) {
-    const stockRow = event.target.parentNode.parentNode;
-    stockRow.remove();
-    // Add logic to remove stock from the user's favorites list in the database
-  }
-});
+addStockToFavoriteList('');

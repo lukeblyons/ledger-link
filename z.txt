@@ -1,0 +1,123 @@
+Folder: ledger-link
+    Folder: backend
+        Folder: node_modules
+        File: .env
+        File: index.js
+        File: package-lock.json
+        File:  package.json
+    Folder: dashboard
+        Folder: stock-overview
+            File: overview.html
+            File: overview.js
+        Folder: stocks-api
+            File: stocks.css
+            File: stocks.js
+        File: dashboard.css
+        File: dashboard.html
+        File: dashboard.js
+    Folder: landing-page
+        File: landing.html
+    Folder: universal
+        Folder: buttons
+            File: buttons.css
+            File: buttons.js
+        Folder: cards
+            File: cards.css
+        Folder: forms
+            File: signup-form.css
+            File: signup-form.js
+        Folder:logo
+            File: logo.css
+        Folder: OTP
+            File:  otp.css
+            File: otp.html
+            File: otp.js
+        Folder: star-background
+            File: star.css
+            File: star.js
+    File: .gitignore
+
+Chat, from now on, our entire conversation is going to be about one project in VS Code. I have been working on it, and have an assortment of folders and files written. The code is written in html, css, js and sql. I am using node.js.
+
+I am going to give you a list that represents my directory, which i will paste below. If it says 'Folder:' that is a folder. If it says 'File:' that is a file. Here is my directory:
+Folder: ledger-link
+    Folder: backend
+        Folder: node_modules
+        File: .env
+        File: index.js
+        File: package-lock.json
+        File:  package.json
+    Folder: dashboard
+        Folder: stock-overview
+            File: overview.html
+            File: overview.js
+        Folder: stocks-api
+            File: stocks.css
+            File: stocks.js
+        File: dashboard.css
+        File: dashboard.html
+        File: dashboard.js
+    Folder: landing-page
+        File: landing.html
+    Folder: universal
+        Folder: buttons
+            File: buttons.css
+            File: buttons.js
+        Folder: cards
+            File: cards.css
+        Folder: forms
+            File: signup-form.css
+            File: signup-form.js
+        Folder:logo
+            File: logo.css
+        Folder: OTP
+            File:  otp.css
+            File: otp.html
+            File: otp.js
+        Folder: star-background
+            File: star.css
+            File: star.js
+    File: .gitignore
+
+We will go through each folder and file, and i will give you what code is inside of them. For example, Folder: dashboard contains Folder: stock-overview, Folder: stocks-api, File: dashboard.css, File: dashboard.html and File: dashboard.js. Within Folder: stock-overfiew there is File: overview.html and File: overview.js. Within Folder: stocks-api there is File: stocks.css and File: stocks.js.
+
+once we have gone through each, that will be the code that we will refer back to. If i say 'UPDATED CODE FOR' followed by the file name, that will be the new code for that file.
+
+If this all makes sense, tell me where you would like to start, and i will give you the code for it.
+
+
+/ledger-link
+    /backend
+        /backend/node_modules
+        /backend/.env
+        /backend/index.js
+        /backend/package-lock.json
+        /backend/package.json
+    /dashboard
+        /dashboard/stocks-api
+            /dashboard/stocks-api/stocks.css
+            /dashboard/stocks-api/stocks.js
+        /dashboard/dashboard.css
+        /dashboard/dashboard.html
+        /dashboard/dashboard.js
+    /landing-page
+        /landing-page/landing.html
+    /universal
+        /universal/buttons
+            /universal/buttons/buttons.css
+            /universal/buttons/buttons.js
+        /universal/cards
+            /universal/cards/cards.css
+        /universal/forms
+            /universal/forms/signup-form.css
+            /universal/forms/signup-form.js
+        /universal/logo
+            /universal/logo/logo.css
+        /universal/OTP
+            /universal/OTP/otp.css
+            /universal/OTP/otp.html
+            /universal/OTP/otp.js
+        /universal/star-background
+            /universal/star-background/star.css
+            /universal/star-background/star.js
+    .gitignore

@@ -41,6 +41,7 @@
 				<div class="logo-image"></div>
 				<p class="logo-text">LedgerLink</p>
 			</div>
+			<p class="username">lukeblyons</p>
 			<div class="menu-container">
 				<i class="fi fi-rr-apps"></i>
 				<div class="dropdown-menu">
@@ -53,7 +54,7 @@
 	<main>
 		<div class='stock-search-container'>
 			<h1 class="stock-favorites">Stock Search</h1>
-			<form id="search-form" name="search-form" method="POST">
+			<form id="search-form" name="search-form">
 				<label for="stock-ticker">Enter Stock Ticker:</label>
         		<input type="text" id="stock-ticker" name="stock-ticker" required>
         		<button type="submit">Search and Add</button>
@@ -77,10 +78,8 @@
 	</main>
 	
 	<script src="dashboard.js"></script> 
-	<script src="stocks-api/stocks.js"></script> 
+	<script src="/dashboard/stocks-api/stocks.js"></script> 
 	<script src="/universal/star-background/star.js"></script> 
-	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-	<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 	
 </body>
 </html>

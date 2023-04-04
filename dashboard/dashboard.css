@@ -16,17 +16,25 @@ i.fi.fi-rr-apps:hover {
     cursor: pointer;
 }
 
+
 i.fi.fi-rr-apps.active,
 i.fi.fi-rr-apps.active:hover {
   color: #FF0059;
 }
 
+.username {
+  margin-left: auto;
+  margin-top: 0;
+  padding: 0%;
+  font-weight: bold;
+}
 
  /* Menu Icon Dropdown */
 .menu-container {
     position: relative;
     display: inline-block;
     cursor: pointer;
+    margin-left: 2vmin;
   }
   
   .dropdown-menu {

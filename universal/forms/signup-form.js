@@ -41,53 +41,20 @@ document.querySelector('.switch-to-signup').addEventListener('click', (e) => {
   document.querySelector('.login-form').style.display = 'none';
 });
 
+// Signup-form submission goes to OTP page
+const signupForm = document.querySelector('#signup-form');
 
+signupForm.addEventListener('submit', function(event) {
+  event.preventDefault();
 
-// Add event listeners for the signup and login forms
-document.querySelector('.form-signup').addEventListener('submit', async (event) => {
-	event.preventDefault();
-  
-	const username = event.target.querySelector('input[type="text"]').value;
-	const email = event.target.querySelector('input[type="email"]').value;
-	const password = event.target.querySelector('input[type="password"]').value;
-  
-	const response = await fetch('/register', {
-	  method: 'POST',
-	  headers: {
-		'Content-Type': 'application/json',
-	  },
-	  body: JSON.stringify({ username, email, password }),
-	});
-  
-	const data = await response.json();
-	if (response.status === 201) {
-	  alert(data.message);
-	  // Redirect to the dashboard or login page
-	} else {
-	  alert(data.error);
-	}
-  });
-  
-  document.querySelector('.form-login').addEventListener('submit', async (event) => {
-	event.preventDefault();
-  
-	const email = event.target.querySelector('input[type="text"]').value;
-	const password = event.target.querySelector('input[type="password"]').value;
-  
-	const response = await fetch('/login', {
-	  method: 'POST',
-	  headers: {
-		'Content-Type': 'application/json',
-	  },
-	  body: JSON.stringify({ email, password }),
-	});
-  
-	const data = await response.json();
-	if (response.status === 200) {
-	  alert(data.message);
-	  // Redirect to the dashboard
-	} else {
-	  alert(data.error);
-	}
-  });
-  
+  window.location.href = '/universal/OTP/otp.html';
+});
+
+// Login-form submission goes to dashboard page
+const loginForm = document.querySelector('.login-form');
+
+loginForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  window.location.href = '/dahshboard/dashboard.html';
+});
