@@ -49,6 +49,6 @@ function submit() {
 
 	//  Redirect to a new page if all OTP fields are filled
 	if (otp.length === inputs.length) {
-		window.location.href = "/dashboard/dashboard.html"; // replace with the URL of the new page
+		window.location.href = "/client/html/dashboard.html"; // replace with the URL of the new page
 	}
 }

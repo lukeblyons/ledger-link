@@ -9,7 +9,7 @@ document.getElementById('search-form').addEventListener('submit', (e) => {
 
 async function addStockToFavoriteList(stockTicker) {
   // Set default tickers
-  const defaultTickers = ['AAPL', 'META', 'TSLA'];
+  // const defaultTickers = ['AAPL', 'META', 'TSLA'];
   
   // If the stock ticker is not provided, use default tickers
   if (!stockTicker) {

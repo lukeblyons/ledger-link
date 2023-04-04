@@ -47,7 +47,7 @@ const signupForm = document.querySelector('#signup-form');
 signupForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  window.location.href = '/universal/OTP/otp.html';
+  window.location.href = '/client/html/otp.html';
 });
 
 // Login-form submission goes to dashboard page
@@ -56,5 +56,5 @@ const loginForm = document.querySelector('.login-form');
 loginForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
-  window.location.href = '/dahshboard/dashboard.html';
+  window.location.href = '/client/html/dashboard.html';
 });
