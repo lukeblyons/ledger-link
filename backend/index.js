@@ -29,8 +29,21 @@ app.post('/signup', (req, res) => {
   });
   // serve static assets like CSS and JS files
 
+  const stockTickers = [
+    'MSFT', 'GOOGL', 'FB', 'NVDA', 'ADBE', 'PYPL', 'V', 'MA', 'CRM', 'CSCO',
+    'INTC', 'AVGO', 'QCOM', 'TXN', 'FIS', 'ACN', 'ORCL', 'IBM', 'UBER', 'LYFT',
+    'BLK', 'GS', 'JPM', 'BAC', 'C', 'WFC', 'AXP', 'VZ', 'T', 'TMUS', 'AMT',
+    'CCI', 'SBAC', 'NEE', 'D', 'SO', 'DUK', 'PCG', 'EXC', 'AEP', 'AES', 'ED',
+    'ETR', 'NEE', 'AON', 'MMC', 'SPGI', 'MSCI', 'ICE', 'NDAQ', 'TRI'
+  ];
+  
 
-const PORT = 3000;
+  app.get('/getRandomTicker', (req, res) => {
+
+    const randomIndex = Math.floor(Math.random() * stockTickers.length);
+    const randomTicker = stockTickers[randomIndex];
+    res.json({ ticker: randomTicker });
+  });
 
 
 app.get('/client/html/landing.html', (req, res) => {
@@ -103,7 +116,7 @@ app.get('/client/frontend-js/stocks.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/frontend-js/stocks.js'));
 });
 
-
+const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);

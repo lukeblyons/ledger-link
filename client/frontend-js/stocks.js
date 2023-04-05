@@ -7,6 +7,18 @@ document.getElementById('search-form').addEventListener('submit', (e) => {
   addStockToFavoriteList(stockTicker);
 });
 
+document.querySelector('#getRandomTickerButton').addEventListener('click', () => {
+  fetch('/getRandomTicker')
+    .then(response => response.json())
+    .then(data => {
+      addStockToFavoriteList(data.ticker);
+      document.querySelector('#ticker').innerHTML = `Added ${data.ticker} to favorites list.`;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
 async function addStockToFavoriteList(stockTicker) {
   // Set default tickers
   const defaultTickers = ['AAPL', 'META', 'TSLA'];

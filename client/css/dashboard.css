@@ -9,6 +9,7 @@ canvas {
 
 header i {
     font-size: 4vmin;
+    margin-bottom: 0;
 }
 
 i.fi.fi-rr-apps:hover {
