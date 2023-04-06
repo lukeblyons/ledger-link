@@ -2,48 +2,43 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-// create the Express app
+
 const app = express();
-// parse incoming form data
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-// handle signup form submission
+
 app.post('/signup', (req, res) => {
     const username = req.body.username;
     const email = req.body.email;
     const password = req.body.password;
   
-    // TODO: handle creating a new user account
-  
     res.send('Signup successful');
-  });
-  
-  // handle login form submission
-  app.post('/login', (req, res) => {
-    const username = req.body.username;
-    const password = req.body.password;
-  
-    // TODO: handle logging in an existing user
-  
-    res.send('Login successful');
-  });
-  // serve static assets like CSS and JS files
-
-  const stockTickers = [
-    'MSFT', 'GOOGL', 'FB', 'NVDA', 'ADBE', 'PYPL', 'V', 'MA', 'CRM', 'CSCO',
-    'INTC', 'AVGO', 'QCOM', 'TXN', 'FIS', 'ACN', 'ORCL', 'IBM', 'UBER', 'LYFT',
-    'BLK', 'GS', 'JPM', 'BAC', 'C', 'WFC', 'AXP', 'VZ', 'T', 'TMUS', 'AMT',
-    'CCI', 'SBAC', 'NEE', 'D', 'SO', 'DUK', 'PCG', 'EXC', 'AEP', 'AES', 'ED',
-    'ETR', 'NEE', 'AON', 'MMC', 'SPGI', 'MSCI', 'ICE', 'NDAQ', 'TRI'
-  ];
+});
   
 
-  app.get('/getRandomTicker', (req, res) => {
+app.post('/login', (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
 
-    const randomIndex = Math.floor(Math.random() * stockTickers.length);
-    const randomTicker = stockTickers[randomIndex];
-    res.json({ ticker: randomTicker });
-  });
+  res.send('Login successful');
+});
+
+const stockTickers = [
+  'MSFT', 'GOOGL', 'FB', 'NVDA', 'ADBE', 'PYPL', 'V', 'MA', 'CRM', 'CSCO',
+  'INTC', 'AVGO', 'QCOM', 'TXN', 'FIS', 'ACN', 'ORCL', 'IBM', 'UBER', 'LYFT',
+  'BLK', 'GS', 'JPM', 'BAC', 'C', 'WFC', 'AXP', 'VZ', 'T', 'TMUS', 'AMT',
+  'CCI', 'SBAC', 'NEE', 'D', 'SO', 'DUK', 'PCG', 'EXC', 'AEP', 'AES', 'ED',
+  'ETR', 'NEE', 'AON', 'MMC', 'SPGI', 'MSCI', 'ICE', 'NDAQ', 'TRI'
+];
+
+
+app.get('/getRandomTicker', (req, res) => {
+
+  const randomIndex = Math.floor(Math.random() * stockTickers.length);
+  const randomTicker = stockTickers[randomIndex];
+  res.json({ ticker: randomTicker });
+});
 
 
 app.get('/client/html/landing.html', (req, res) => {

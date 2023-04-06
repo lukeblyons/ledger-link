@@ -20,7 +20,7 @@ document.querySelector('#getRandomTickerButton').addEventListener('click', () =>
 });
 
 async function addStockToFavoriteList(stockTicker) {
-  // Set default tickers
+  // Default tickers
   const defaultTickers = ['AAPL', 'META', 'TSLA'];
   
   // If the stock ticker is not provided, use default tickers

@@ -51,9 +51,6 @@ function displayArticles() {
   }
 }
 
-
-
-
 document.querySelector(".fi-rr-apps").addEventListener("click", function() {
 	const dropdownMenu = document.querySelector(".dropdown-menu");
 	const menuIcon = document.querySelector(".fi-rr-apps");
@@ -67,7 +64,7 @@ document.querySelector(".fi-rr-apps").addEventListener("click", function() {
 	}
 });
 
-// Optional: Close the dropdown menu when clicking outside of it
+// Close the dropdown menu when clicking outside of it
 window.addEventListener("click", function(event) {
 	if (!event.target.matches(".fi-rr-apps")) {
 		const dropdownMenu = document.querySelector(".dropdown-menu");
