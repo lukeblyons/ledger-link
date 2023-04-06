@@ -24,7 +24,9 @@
 	<link href="/client/css/signup-form.css" rel="stylesheet">
 	<!-- Dashboard style -->
 	<link href="/client/css/dashboard.css" rel="stylesheet">
-	<!-- Stock API styling -->
+	<!-- News style -->
+	<link href="/client/css/news.css" rel="stylesheet">
+	<!-- stocks style -->
 	<link href="/client/css/stocks.css" rel="stylesheet">
 	
 	<title>LedgerLink</title>
@@ -32,8 +34,8 @@
 </head>
 	
 <body>
-	
 	<canvas id="canvas"></canvas>
+
 	
 	<header>
 		<div class="header-container">
@@ -45,7 +47,7 @@
 			<div class="menu-container">
 				<i class="fi fi-rr-apps"></i>
 				<div class="dropdown-menu">
-					<a href="/client/html/news.html">News</a>
+					<a href="/client/html/dashboard.html">Favorites List</a>
 					<a href="/client/html/landing.html">Log Out</a>
 				</div>
 			</div>
@@ -53,36 +55,20 @@
 	</header>
 	
 	<main>
-		<div class='stock-search-container'>
-			<h1 class="stock-favorites">Stock Search</h1>
-			<form id="search-form" name="search-form">
-				<label for="stock-ticker">Enter Stock Ticker:</label>
-        		<input type="text" id="stock-ticker" name="stock-ticker" required>
-        		<button type="submit">Search and Add</button>
-			</form>
-			<div class="random-stock-container">
-				<button id="getRandomTickerButton">Random Stock</button>
-				<!-- <p id="ticker"></p> -->
-			</div>
-		</div>
-		<h1>Favorites List:</h1>
-		<table id="favorites-list">
-			<thead>
-				<tr>
-					<th>Ticker</th>
-					<th>Name</th>
-					<th>Price</th>
-					<th>Daily Change</th>
-					<th>Market Cap</th>
-					<th>Dividend Yield</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody></tbody>
-		</table>
+		<h1 class="stock-favorites">News Search</h1>
+		<form id="search-form">
+			<label for="company-name">Company Ticker:</label>
+			<input type="text" id="company-name" />
+			<button type="submit">Search</button>
+		  </form>
+		
+		  <div id="news-container-wrapper">
+			<div id="news-container"></div>
+		  </div>
+		  <button id="load-more">Load More</button>
 	</main>
-	<script src="/client/frontend-js/dashboard.js"></script> 
-	<script src="/client/frontend-js/stocks.js"></script> 
+	
+	<script src="/client/frontend-js/news.js"></script> 
 	<script src="/client/frontend-js/star.js"></script> 
 	
 </body>

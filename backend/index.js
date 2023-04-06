@@ -58,9 +58,9 @@ app.get('/client/html/otp.html', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/html/otp.html'));
 })
 
-// app.get('/client/html/news.html', (req, res) => {
-//     res.sendFile(path.join(__dirname, '../client/html/news.html'));
-// })
+app.get('/client/html/news.html', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/html/news.html'));
+})
 
 // CSS
 app.get('/client/css/buttons.css', (req, res) => {
@@ -95,6 +95,10 @@ app.get('/client/css/stocks.css', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/css/stocks.css'));
 });
 
+app.get('/client/css/news.css', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/css/news.css'));
+});
+
 // JS
 app.get('/client/frontend-js/buttons.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/frontend-js/buttons.js'));
@@ -120,9 +124,9 @@ app.get('/client/frontend-js/stocks.js', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/frontend-js/stocks.js'));
 });
 
-// app.get('/client/frontend-js/news.js', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/frontend-js/news.js'));
-// });
+app.get('/client/frontend-js/news.js', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/frontend-js/news.js'));
+});
 
 
 
